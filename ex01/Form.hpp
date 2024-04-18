@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:43:15 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/15 13:25:42 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/04/18 09:39:08 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Form
 		Form(Form &to_copy);
 		Form(std::string name, int grade_to_sign, int grade_to_execute);
 		~Form();
+		Form	&operator=(Form &to_copy);
 		std::string	get_name() const;
 		bool		get_status() const;
 		int			get_grade_to_sign() const;
@@ -41,6 +42,11 @@ class Form
                 const char *what() const throw ();
         };
         class GradeTooLowException : public std::exception
+        {
+            public:
+                const char *what() const throw ();
+        };
+		class GradeTooLowExceptionSign : public std::exception
         {
             public:
                 const char *what() const throw ();

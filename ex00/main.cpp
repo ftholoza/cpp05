@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:14:43 by francesco         #+#    #+#             */
-/*   Updated: 2024/04/15 10:38:16 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/04/18 09:23:38 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int main(void)
     }
     try
     {
-        std::cout << "try to create bureaucrat of grade 99999999999" << std::endl;
-        Bureaucrat c("Pierre", 99);
+        std::cout << "try to create bureaucrat of grade 999999" << std::endl;
+        Bureaucrat c("Pierre", 999999);
         std::cout << c << std::endl;
     }
     catch (std::exception &e)
@@ -74,6 +74,26 @@ int main(void)
     {
         std::cout << "try to create bureaucrat of grade -1" << std::endl;
         Bureaucrat e("Pierrique", -1);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        std::cout << "try to decrement bureaucrat under 150" << std::endl;
+        Bureaucrat  f("test", 150);
+        f.decrement();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        std::cout << "try to increment bureaucrat upper 1" << std::endl;
+        Bureaucrat  f("test", 1);
+        f.increment();
     }
     catch(const std::exception& e)
     {

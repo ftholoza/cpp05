@@ -6,7 +6,7 @@
 /*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:14:43 by francesco         #+#    #+#             */
-/*   Updated: 2024/04/18 06:29:45 by francesco        ###   ########.fr       */
+/*   Updated: 2024/04/18 09:07:00 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
+    AForm   *test;
     std::cout << "---CONSTRUCTORS---" << std::endl;
     ShrubberyCreationForm   shruberry("plop");
     RobotomyRequestForm     robotomy("mail");
@@ -25,7 +27,11 @@ int main(void)
     Bureaucrat              president("President", 1);
     Bureaucrat              stagiaire("stagiaire", 150);
     Bureaucrat              responsable("responsable", 75);
-    std::cout << "----------------" << std::endl;
+    Intern                  intern;
+    std::cout << "---here the intern---" << std::endl;
+    test = intern.makeForm("shrubbery creation", "home");
+    std::cout << *test << std::endl;
+    std::cout << "---------------------" << std::endl;
     std::cout << "---BASIC-TESTS---" << std::endl;
     std::cout << "stagiaire tests sign forms" << std::endl;
     try

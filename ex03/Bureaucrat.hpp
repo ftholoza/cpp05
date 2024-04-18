@@ -6,7 +6,7 @@
 /*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 07:09:01 by francesco         #+#    #+#             */
-/*   Updated: 2024/04/18 09:38:53 by francesco        ###   ########.fr       */
+/*   Updated: 2024/04/17 20:47:30 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ class Bureaucrat
                 const char *what() const throw ();
         };
         class GradeTooLowExceptionSign : public std::exception
+        {
+            public:
+                const char *what() const throw ();
+        };
+        class GradeTooHightExceptionExec : public std::exception
         {
             public:
                 const char *what() const throw ();

@@ -6,7 +6,7 @@
 /*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:43:15 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/18 09:56:39 by francesco        ###   ########.fr       */
+/*   Updated: 2024/04/17 19:58:52 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class AForm
 		AForm(AForm &to_copy);
 		AForm(std::string name, int grade_to_sign, int grade_to_execute);
 		~AForm();
-		AForm &operator=(AForm &to_copy);
 		std::string	get_name() const;
 		bool			get_status() const;
 		int				get_grade_to_sign() const;
@@ -53,11 +52,6 @@ class AForm
             public:
                 const char *what() const throw ();
         };
-		class GradeTooLowExceptionSign : public std::exception
-		{
-			public:
-				const char *what() const throw ();
-		};
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm);

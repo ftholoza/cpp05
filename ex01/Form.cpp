@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/15 13:27:56 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/04/18 09:42:33 by francesco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ Form::Form(std::string name, int grade_to_sign, int grade_to_execute): name(name
 	return ;
 }
 
+Form&	Form::operator=(Form &to_copy)
+{
+	std::cout << "COPY OPERATOR OVERLOAD CANT COPY" << std::endl;
+	return (*this);
+}
+
 Form::~Form()
 {
 	std::cout << "\033[1;31mFORM DESTRUCTOR: \033[0m" << std::endl;
@@ -69,7 +75,7 @@ int			Form::get_grade_to_execute() const
 void		Form::beSigned(Bureaucrat signatory)
 {
 	if (this->grade_to_sign < signatory.get_grade())
-		throw Form::GradeTooLowException();
+		throw Form::GradeTooLowExceptionSign();
 	else
 		this->is_sigend = true;
 	return ;
@@ -82,7 +88,12 @@ const char *Form::GradeTooHightException::what() const throw()
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-    return ((char *)"\033[1;31mError: grade is to low, cannot sign\033[0m");
+    return ((char *)"\033[1;31mError: grade is to low, the lowest grade is 150\033[0m");
+}
+
+const char *Form::GradeTooLowExceptionSign::what() const throw()
+{
+	return ((char *)"\033[1;31mError: grade is to low, cannot sign\033[0m");
 }
 
 std::ostream& operator<<(std::ostream& os, const Form &form)
