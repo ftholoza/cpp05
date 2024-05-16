@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:14:43 by francesco         #+#    #+#             */
-/*   Updated: 2024/04/18 09:23:38 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/15 09:26:06 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,25 @@ int main(void)
         std::cout << "try to increment bureaucrat upper 1" << std::endl;
         Bureaucrat  f("test", 1);
         f.increment();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        std::cout << "orthodox tests" << std::endl;
+        Bureaucrat  f("james", 1);
+        Bureaucrat  g(f);
+        std::cout << f << std::endl;
+        std::cout << g << std::endl;
+        std::cout << "decrement g" << std::endl;
+        g.decrement();
+        std::cout << g << std::endl;
+        std::cout << "copy overload f = g" << std::endl;
+        f = g;
+        std::cout << f << std::endl;
+        std::cout << g << std::endl;
     }
     catch(const std::exception& e)
     {

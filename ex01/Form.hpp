@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:43:15 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/18 09:39:08 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/15 13:57:39 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Form
 {
 	private:
 		const std::string	name;
-		bool				is_sigend;
+		bool				is_signed;
 		const	int			grade_to_sign;
 		const	int			grade_to_execute;
 	public:

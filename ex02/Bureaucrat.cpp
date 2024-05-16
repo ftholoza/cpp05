@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 07:08:55 by francesco         #+#    #+#             */
-/*   Updated: 2024/04/18 06:30:15 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/15 13:54:06 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 
 Bureaucrat::Bureaucrat(Bureaucrat &to_copy): _name(to_copy._name)
 {
-    std::cout << "\033[1;32mBUREAUCRAT COPY CONSTRUCTOR\033[0m" << std::endl;   
+    std::cout << "\033[1;32mBUREAUCRAT COPY CONSTRUCTOR\033[0m" << std::endl;
     this->_grade = to_copy._grade;
     return ;
 }
@@ -83,7 +83,7 @@ void    Bureaucrat::signForm(AForm &form)
 {
     if (form.get_grade_to_sign() < this->get_grade())
     {
-        throw Bureaucrat::GradeTooLowExceptionSign();
+        std::cout << this->get_name() << " couldn't sign " << form.get_name() << " because his grade is to low" << std::endl;
     }
     else
         std::cout << this->_name << " signed " << form.get_name() << std::endl;
@@ -93,13 +93,13 @@ void    Bureaucrat::executeForm(AForm const & form)
 {
     if (form.get_status() == false)
 	{
-		throw Bureaucrat::NotSignedException();
+		std::cout << this->_name << " couldn't execute " << form.get_name() << " because form not signed" << std::endl;
 		return ;
 	}
 	if (form.get_grade_to_execute() >= this->get_grade())
 		std::cout << this->_name << " execute " << form.get_name() << std::endl;
 	else
-        throw Bureaucrat::GradeTooLowExceptionExec();
+        std::cout << this->_name << " couldn't execute " << form.get_name() << " because grade is too low" << std::endl;
 	return ;
 }
 

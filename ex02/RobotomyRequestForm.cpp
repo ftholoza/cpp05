@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/17 23:08:21 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/15 14:07:29 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 # include "Bureaucrat.hpp"
 # include <cstdlib>
 # include <stdlib.h>
+# include <ctime>
+# include <iostream>
 
 
 RobotomyRequestForm::RobotomyRequestForm(): AForm("Robotomy", 72, 45)
 {
+	this->target = "none";
 	std::cout << "\033[1;32mDEFAULT FORM CONSTRUCTOR NONE\033[0m" << std::endl;
 	return ;
 }
@@ -26,10 +29,11 @@ RobotomyRequestForm::RobotomyRequestForm(): AForm("Robotomy", 72, 45)
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &to_copy): AForm(to_copy)
 {
 	std::cout << "\033[1;32mFORM COPY CONSTRUCTOR NONE\033[0m" << std::endl;
+	this->target = to_copy.target;
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("Robotomy", 72, 45), target(target)
 {
 	std::cout << "\033[1;32mFORM CONSTRUCTOR\033[0m" << std::endl;
 	return ;
@@ -43,7 +47,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void		RobotomyRequestForm::action() const
 {
-    srand(time(nullptr));
+    std::srand(std::time(NULL));
     if ((std::rand() % 100) >= 50)
     {
         std::cout << "BipBip" << std::endl;

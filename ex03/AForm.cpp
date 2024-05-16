@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/18 08:44:10 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/15 14:02:40 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,22 @@
 AForm::AForm(): name("none"), grade_to_execute(150), grade_to_sign(150)
 {
 	std::cout << "\033[1;32mDEFAULT AFORM CONSTRUCTOR NONE\033[0m" << std::endl;
-	std::cout << "Form named none has been created succesfully" << std::endl;
-	this->is_sigend = false;
+	this->is_signed = false;
 	return ;
 }
 
 AForm::AForm(AForm &to_copy): name(to_copy.name),
-	grade_to_execute(to_copy.grade_to_execute), grade_to_sign(to_copy.grade_to_sign)
+	grade_to_execute(to_copy.grade_to_execute), grade_to_sign(to_copy.grade_to_sign), is_signed(to_copy.is_signed)
 {
-	this->is_sigend = to_copy.is_sigend;
+	this->is_signed = to_copy.is_signed;
 	std::cout << "\033[1;32mAFORM COPY CONSTRUCTOR NONE\033[0m" << std::endl;
-	std::cout << "Form " << to_copy.name << "has been succesfully copied" << std::endl;
 	return ;
+}
+
+AForm&	AForm::operator=(AForm &to_copy)
+{
+	std::cout << "COPY OPERATOR OVERLOAD CANT COPY" << std::endl;
+	return (*this);
 }
 
 AForm::AForm(std::string name, int grade_to_sign, int grade_to_execute): name(name),
@@ -37,9 +41,8 @@ AForm::AForm(std::string name, int grade_to_sign, int grade_to_execute): name(na
 		throw AForm::GradeTooLowException();
 	if (this->grade_to_sign < 1 || this->grade_to_execute < 1)
 		throw AForm::GradeTooHightException();
-	this->is_sigend = false;
+	this->is_signed = false;
 	std::cout << "\033[1;32mAFORM CONSTRUCTOR\033[0m" << std::endl;
-	std::cout << "Form named " << name << " has been successfully created" << std::endl;
 	return ;
 }
 
@@ -56,7 +59,7 @@ std::string	AForm::get_name() const
 
 bool		AForm::get_status() const
 {
-	return (this->is_sigend);
+	return (this->is_signed);
 }
 
 int			AForm::get_grade_to_sign() const
@@ -72,18 +75,17 @@ int			AForm::get_grade_to_execute() const
 void		AForm::beSigned(Bureaucrat signatory)
 {
 	if (this->grade_to_sign < signatory.get_grade())
-		throw AForm::GradeTooLowException();
+		throw AForm::GradeTooLowExceptionSign();
 	else
 	{
-		std::cout << this->name << " has been signed" << std::endl;
-		this->is_sigend = true;
+		this->is_signed = true;
 	}
 	return ;
 }
 
 void		AForm::execute(Bureaucrat const & executor) const
 {
-	if (this->is_sigend == false)
+	if (this->is_signed == false)
 	{
 		throw AForm::NotSignedException();
 		return ;
@@ -91,23 +93,31 @@ void		AForm::execute(Bureaucrat const & executor) const
 	if (this->grade_to_execute >= executor.get_grade())
 		this->action();
 	else
-		std::cout << "\033[1;31mERROR: executor grade too low\033[0m" << std::endl;
+	{
+		throw AForm::GradeTooLowException();
+		return ;
+	}
 	return ;
 }
 
 const char *AForm::GradeTooHightException::what() const throw()
 {   
-    return ((char *)"\033[1;31mError: grade is to hight, the highest grade is 1\033[0m");
+    return ("\033[1;31mError: grade is to hight, the highest grade is 1\033[0m");
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-    return ((char *)"\033[1;31mError: grade is to low, cannot sign\033[0m");
+    return ("\033[1;31mError: grade is to low, cannot sign\033[0m");
 }
 
 const char *AForm::NotSignedException::what() const throw()
 {   
-    return ((char *)"\033[1;31mError: this form is not signed\033[0m");
+    return ("\033[1;31mError: this form is not signed\033[0m");
+}
+
+const char *AForm::GradeTooLowExceptionSign::what() const throw()
+{
+	return ("\033[1;31mError: grade is to low, cannot sign\033[0m");
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm &aform)
