@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:14:43 by francesco         #+#    #+#             */
-/*   Updated: 2024/05/15 09:26:06 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:29:09 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@ int main(void)
     {
         std::cout << "try to create bureaucrat of grade 0" << std::endl;
         Bureaucrat b("Pascal", 0);
+        std::cout << b << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    try
+    {
+        std::cout << "try to create bureaucrat of grade -100" << std::endl;
+        Bureaucrat b("Pascal", -100);
         std::cout << b << std::endl;
     }
     catch (std::exception &e)

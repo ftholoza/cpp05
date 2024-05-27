@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 07:11:59 by francesco         #+#    #+#             */
-/*   Updated: 2024/04/18 08:51:29 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/27 16:47:13 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,40 @@ Intern &Intern::operator=(Intern const &to_copy)
     return *this;
 }
 
+bool    is_white(std::string str)
+{
+    const char *string;
+    int         i;
+
+    i = 0;
+    string = str.c_str();
+    while (string[i])
+    {
+        if (!isspace(string[i]))
+            return (false);
+        i++;
+    }
+    return (true);
+}
+
 AForm *Intern::makeForm(std::string form_name, std::string target)
 {
+    if (target.compare("") == 0 || is_white(target) == true)
+    {
+        std::cout << "\033[1;31mERROR: incorect target name\033[0m" << std::endl;
+        return NULL;
+    }
     std::string forms[] = {"presidential pardon", "robotomy request", "shrubbery creation"};
     int         i;
     
-    i = 1;
+    i = 0;
     while (i < 3)
     {
         if (form_name == forms[i])
             break;
         i++;
     }
+    i++;
     switch (i)
     {
         case 1:

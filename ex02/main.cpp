@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:14:43 by francesco         #+#    #+#             */
-/*   Updated: 2024/04/18 06:29:45 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/27 17:13:29 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ int main(void)
     std::cout << "---test president execute all the forms---" << std::endl;
     try
     {
-        president.executeForm(shruberry);
-        shruberry.execute(president);   
+        president.executeForm(shruberry); 
     }
     catch(const std::exception& e)
     {
@@ -93,7 +92,6 @@ int main(void)
     try
     {
         president.executeForm(presidential);
-        presidential.execute(president);   
     }
     catch(const std::exception& e)
     {
@@ -101,8 +99,7 @@ int main(void)
     }
     try
     {
-        president.executeForm(robotomy);
-        robotomy.execute(president);   
+        president.executeForm(robotomy); 
     }
     catch(const std::exception& e)
     {
@@ -112,7 +109,6 @@ int main(void)
     try
     {
         responsable.executeForm(robotomy);
-        robotomy.execute(responsable);
     }
     catch(const std::exception& e)
     {
@@ -121,7 +117,6 @@ int main(void)
     try
     {
         responsable.executeForm(shruberry);
-        shruberry.execute(responsable);
     }
     catch(const std::exception& e)
     {
@@ -130,7 +125,6 @@ int main(void)
     try
     {
         responsable.executeForm(presidential);
-        presidential.execute(responsable);
     }
     catch(const std::exception& e)
     {
@@ -143,7 +137,6 @@ int main(void)
     try
     {
         responsable.executeForm(presidential);
-        presidential.execute(responsable);
     }
     catch(const std::exception& e)
     {
@@ -155,7 +148,6 @@ int main(void)
     try
     {
         responsable.executeForm(presidential);
-        presidential.execute(responsable);
     }
     catch(const std::exception& e)
     {

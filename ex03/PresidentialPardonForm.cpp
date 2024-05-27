@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/17 18:59:18 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/27 15:52:51 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 PresidentialPardonForm::PresidentialPardonForm(): AForm("Presidential", 25, 5)
 {
-	std::cout << "\033[1;32mDEFAULT FORM CONSTRUCTOR NONE\033[0m" << std::endl;
+	std::cout << "\033[1;32mDEFAULT PRESIDENTIAL CONSTRUCTOR NONE\033[0m" << std::endl;
 	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &to_copy): AForm(to_copy)
 {
-	std::cout << "\033[1;32mFORM COPY CONSTRUCTOR NONE\033[0m" << std::endl;
+	std::cout << "\033[1;32mPRESIDENTIAL COPY CONSTRUCTOR NONE\033[0m" << std::endl;
 	return ;
 }
 
@@ -34,7 +34,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("Presi
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "\033[1;31mFORM DESTRUCTOR: \033[0m" << std::endl;
+	std::cout << "\033[1;31mPRESIDENTIAL DESTRUCTOR: \033[0m" << std::endl;
     return ;
 }
 

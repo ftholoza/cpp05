@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 07:08:55 by francesco         #+#    #+#             */
-/*   Updated: 2024/05/15 13:54:06 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/27 17:11:23 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ void    Bureaucrat::executeForm(AForm const & form)
 		return ;
 	}
 	if (form.get_grade_to_execute() >= this->get_grade())
+    {
+        form.execute(*this);
 		std::cout << this->_name << " execute " << form.get_name() << std::endl;
+    }
 	else
         std::cout << this->_name << " couldn't execute " << form.get_name() << " because grade is too low" << std::endl;
 	return ;

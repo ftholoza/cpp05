@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/15 14:07:29 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:34:52 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,26 @@
 RobotomyRequestForm::RobotomyRequestForm(): AForm("Robotomy", 72, 45)
 {
 	this->target = "none";
-	std::cout << "\033[1;32mDEFAULT FORM CONSTRUCTOR NONE\033[0m" << std::endl;
+	std::cout << "\033[1;32mDEFAULT ROBOTOMY CONSTRUCTOR NONE\033[0m" << std::endl;
 	return ;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &to_copy): AForm(to_copy)
 {
-	std::cout << "\033[1;32mFORM COPY CONSTRUCTOR NONE\033[0m" << std::endl;
+	std::cout << "\033[1;32mROBOTOMY COPY CONSTRUCTOR NONE\033[0m" << std::endl;
 	this->target = to_copy.target;
 	return ;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("Robotomy", 72, 45), target(target)
 {
-	std::cout << "\033[1;32mFORM CONSTRUCTOR\033[0m" << std::endl;
+	std::cout << "\033[1;32mROBOTOMY CONSTRUCTOR\033[0m" << std::endl;
 	return ;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "\033[1;31mFORM DESTRUCTOR: \033[0m" << std::endl;
+	std::cout << "\033[1;31mROBOTOMY DESTRUCTOR: \033[0m" << std::endl;
     return ;
 }
 
