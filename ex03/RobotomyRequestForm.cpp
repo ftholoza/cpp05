@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/27 15:54:56 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:43:28 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void		RobotomyRequestForm::action() const
     }
     else
         std::cout << "Robotomy failed" << std::endl;
-	return ;
 }
 
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm &form)

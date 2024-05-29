@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/27 16:34:52 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:41:45 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ void		RobotomyRequestForm::action() const
         std::cout << this->target << "has been robotomized" << std::endl;
     }
     else
-        std::cout << "Robotomy failed" << std::endl;
-	return ;
+    	std::cout << "Robotomy failed" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm &form)

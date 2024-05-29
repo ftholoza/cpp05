@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesco <francesco@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:43:15 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/04/17 19:56:02 by francesco        ###   ########.fr       */
+/*   Updated: 2024/05/29 20:42:06 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONAFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 #include "iostream"
 #include "Bureaucrat.hpp"

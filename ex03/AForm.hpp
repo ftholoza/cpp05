@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:43:15 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/27 15:44:21 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:43:43 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class AForm
 		AForm();
 		AForm(AForm &to_copy);
 		AForm(std::string name, int grade_to_sign, int grade_to_execute);
-		~AForm();
+		virtual ~AForm();
 		
 		AForm	&operator=(AForm &to_copy);
 		std::string	get_name() const;

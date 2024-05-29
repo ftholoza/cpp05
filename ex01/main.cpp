@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:14:43 by francesco         #+#    #+#             */
-/*   Updated: 2024/05/15 10:40:37 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:36:08 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void)
 {
     std::cout << "\033[1;32m-----CONSTRUCTORS----\033[0m" << std::endl;
-    Form a();
+    Form a;
     Form b("exclusivity pact", 1, 1);
     Form c("cofee machine", 150, 150);
     Bureaucrat d("Bernard", 1);

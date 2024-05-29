@@ -6,14 +6,14 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:57:04 by ftholoza          #+#    #+#             */
-/*   Updated: 2024/05/15 14:02:40 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:43:18 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
-AForm::AForm(): name("none"), grade_to_execute(150), grade_to_sign(150)
+AForm::AForm(): name("none"), grade_to_sign(150), grade_to_execute(150)
 {
 	std::cout << "\033[1;32mDEFAULT AFORM CONSTRUCTOR NONE\033[0m" << std::endl;
 	this->is_signed = false;
@@ -21,7 +21,7 @@ AForm::AForm(): name("none"), grade_to_execute(150), grade_to_sign(150)
 }
 
 AForm::AForm(AForm &to_copy): name(to_copy.name),
-	grade_to_execute(to_copy.grade_to_execute), grade_to_sign(to_copy.grade_to_sign), is_signed(to_copy.is_signed)
+	is_signed(to_copy.is_signed), grade_to_sign(to_copy.grade_to_sign), grade_to_execute(to_copy.grade_to_execute)
 {
 	this->is_signed = to_copy.is_signed;
 	std::cout << "\033[1;32mAFORM COPY CONSTRUCTOR NONE\033[0m" << std::endl;
@@ -30,6 +30,7 @@ AForm::AForm(AForm &to_copy): name(to_copy.name),
 
 AForm&	AForm::operator=(AForm &to_copy)
 {
+	(void)to_copy;
 	std::cout << "COPY OPERATOR OVERLOAD CANT COPY" << std::endl;
 	return (*this);
 }

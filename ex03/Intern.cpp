@@ -6,7 +6,7 @@
 /*   By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 07:11:59 by francesco         #+#    #+#             */
-/*   Updated: 2024/05/27 16:47:13 by ftholoza         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:44:03 by ftholoza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Intern::Intern(Intern &to_copy)
         
 Intern &Intern::operator=(Intern const &to_copy)
 {
+    (void)to_copy;
     std::cout << "\033[1;32mINTERN COPY OVERLOAD\033[0m" << std::endl;
     return *this;
 }
